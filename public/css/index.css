@@ -1,13 +1,16 @@
 body{
-	/*background:url(../images/bodyBg.png);
-	background-size:cover;*/
+	width:100%;
+	background:url(../images/bg.png) no-repeat;
+	background-size:cover;
+}
+.headerAll{
+	width:100%;
+	background:  url(../images/bodyBgCaiDai.png) no-repeat;
 }
 /**头部**/
 .headerContainer{
-	background: #f00 url(../images/bodyBgCaiDai.png) no-repeat;
 	height:320px;
 	overflow:hidden;
-	
 }
 .headerContainerInnerBox{
 	margin-top:124px;
@@ -30,7 +33,6 @@ body{
 	max-width:100%;
 }
 .activityBriefContainer{
-	
 	height:534px;
 	background: -webkit-linear-gradient(#f66701,#fedc34, #ff8e36);
 	background: -o-linear-gradient(#f66701, #fedc34, #ff8e36); 
@@ -78,6 +80,9 @@ body{
 	font-size:16px;
 	line-height:46px;
 }
+.code{
+	display:none;
+}
 .voteBtn{
 	margin:22px 0;
 }
@@ -99,10 +104,15 @@ body{
 	margin-top:30px;
 	overflow: hidden;
 }
+
 /** 照片区域title**/
 .photeAreaTitle{
+	width:1309px;
+	background-image: url(../images/silverBg.png);
+	background-repeat: repeat-x
 	height:104px;
 	position:relative;
+	margin-bottom:28px;
 	
 }
 .photoAreaTitleText{
@@ -112,30 +122,44 @@ body{
 	color:#ffe902;
 	font-size:16px;
 }
-/**照片区域弹出框**/
-.detailBox{
-	position:relative;
-	display:none;
-	width:60%;
-	height:400px;
-	background: #faf;
-	border-radius: 10px;
-	position:absolute;
-	left:20%;
-	top:50px;
-}
-.detailBoxCloseBtn{
-	position:absolute;
-	right:10px;
-	top:10px;
-}
-/***照片框+描述**/
-.eachPhoto{
+
+.position,.level{
+	width:75px;
+	display:inline-block;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
 	
+}
+
+
+/***照片框+描述**/
+.photoContent{
+	width:100%;
+	margin:0 auto;
+}
+
+.eachPhoto{
+	width:25%;
+	background: #fff;
 }
 /**照片框**/
 .photo{
+	position:relative;
+	width:107px;
+	height:169px;
 	margin-right:9px;
+}
+.photoKuang{
+	position:absolute;
+	left:0;
+}
+.photoPic{
+	width:94px;
+	height:139px;
+	position:absolute;
+	left:7px;
+	top:15px;
 }
 /**照片框右面的文字**/
 .photoText{
@@ -146,8 +170,13 @@ body{
 	color:#4c4c4c;
 }
 
-.detailEvent{
+.story{
 	color:#ee5116;
+	cursor:pointer;
+}
+.votingBtn{
+	width:72px;
+	height:20px;
 	cursor:pointer;
 }
 /**footer**/
