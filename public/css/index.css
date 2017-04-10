@@ -1,0 +1,173 @@
+body{
+	/*background:url(../images/bodyBg.png);
+	background-size:cover;*/
+}
+/**头部**/
+.headerContainer{
+	background: #f00 url(../images/bodyBgCaiDai.png) no-repeat;
+	height:320px;
+	overflow:hidden;
+	
+}
+.headerContainerInnerBox{
+	margin-top:124px;
+}
+.logo{
+	width:10%;
+	height:112px;
+
+	
+}
+.logoText{
+	margin-left:10%;
+	width:70%;
+}
+.logoText img:nth-child(1){
+	max-width:28%;
+	margin-bottom:30px;
+}
+.logoText img{
+	max-width:100%;
+}
+.activityBriefContainer{
+	
+	height:534px;
+	background: -webkit-linear-gradient(#f66701,#fedc34, #ff8e36);
+	background: -o-linear-gradient(#f66701, #fedc34, #ff8e36); 
+	background: -moz-linear-gradient(#f66701,#fedc34, #ff8e36);
+	background: linear-gradient(#f66701,#fedc34, #ff8e36); 
+	overflow:hidden;
+}
+.activityBrief{
+	position:relative;
+	height:202px;
+	border-radius:16px;
+	background: #df2101;
+	color:#fff;
+	background: #df2101;
+	margin-top:34px;
+}
+.cloud1{
+	position:absolute;
+	right:0;
+	top:216px;
+}
+.cloud2{
+	position:absolute;
+	left:0;
+	top:432px;
+}
+.activityBriefTitle{
+	font-size:24px;
+	padding-top:30px;
+	padding-bottom:20px;
+	text-align:center;
+}
+.activityBriefText{
+	margin:0 auto;
+	width:90%;
+	font-size:16px;
+	line-height:34px;
+	text-indent: 35px;
+}
+/**投票说明**/
+.vote{
+	color:#000;
+	width:80%;
+	margin:0 auto;
+	font-size:16px;
+	line-height:46px;
+}
+.voteBtn{
+	margin:22px 0;
+}
+.vote .one{
+	padding-left:5%;
+	background: url(../images/one.png) no-repeat left center;
+}
+.vote .two{
+	padding-left:5%;
+	background: url(../images/two.png) no-repeat left center;
+}
+.vote .three{
+	padding-left:5%;
+	background: url(../images/three.png) no-repeat left center;
+}
+/**照片区域**/
+.photeArea{
+	position:relative;
+	margin-top:30px;
+	overflow: hidden;
+}
+/** 照片区域title**/
+.photeAreaTitle{
+	height:104px;
+	position:relative;
+	
+}
+.photoAreaTitleText{
+	position:absolute;
+	left:30px;
+	top:20px;
+	color:#ffe902;
+	font-size:16px;
+}
+/**照片区域弹出框**/
+.detailBox{
+	position:relative;
+	display:none;
+	width:60%;
+	height:400px;
+	background: #faf;
+	border-radius: 10px;
+	position:absolute;
+	left:20%;
+	top:50px;
+}
+.detailBoxCloseBtn{
+	position:absolute;
+	right:10px;
+	top:10px;
+}
+/***照片框+描述**/
+.eachPhoto{
+	
+}
+/**照片框**/
+.photo{
+	margin-right:9px;
+}
+/**照片框右面的文字**/
+.photoText{
+	color:#766868;
+}
+/**单位**/
+.workPlace{
+	color:#4c4c4c;
+}
+
+.detailEvent{
+	color:#ee5116;
+	cursor:pointer;
+}
+/**footer**/
+.footer{
+	font-size:15px;
+	height:110px;
+	background:#d0000d;
+	margin-top:20px;
+	color:#fff;
+}
+.footerTextBox{
+	margin:0 auto;
+	padding-top:29px;
+	width:300px;
+
+	
+}
+.footer p{
+	line-height:27px;
+}
+.footer p:nth-child(){
+	
+}
