@@ -8,7 +8,7 @@ class OperatorDB
     //连接数据库的基本信息
     private $dbms='mysql';       //数据库类型,对于开发者来说，使用不同的数据库，只要改这个.
     private $host='localhost';  //数据库主机名
-    private $dbName='votee';     //使用的数据库
+    private $dbName='vote';     //使用的数据库
     private $user='root';       //数据库连接用户名
     private $passwd='feicui123';     //对应的密码
     private $pdo=null;

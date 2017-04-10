@@ -17,12 +17,18 @@
     <span style="color: red;" id="story">详细事迹</span><br>
     <span>投票数：</span><span id="votecount"></span><br>
     <img id="photo" src="" alt="" style="width: 100px;">
-
+    <div id="pr"></div>
     <script type="text/javascript">
         $.ajax({
             url: "http://20.14.3.175:8080/vote/api/info.php",
             type: "get",
             success: function(data){
+                data.results.personsInfo.forEach(function(item){
+                    $("<img style='width:100px;'"+"src='"+item.photoUrl+"'/>").appendTo("#pr");
+                });
+                //$("<img src=''/>").appendTo("#pr");
+
+
                 console.log(JSON.stringify(data));
                 $("#code").html(data.results.personsInfo[1].id);
                 $("#company").html(data.results.personsInfo[1].company);

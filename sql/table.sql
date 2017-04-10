@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- 表的结构 `voteTime`
+-- 表的结构 `voteGroupInfo`
 -- 投票组信息表
 DROP TABLE IF EXISTS  `voteGroupInfo`;
 CREATE TABLE IF NOT EXISTS  `voteGroupInfo`(
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `ipVotes` (
   `countVotingId` INT unsigned NOT NULL COMMENT '候选人id',
   PRIMARY KEY  (`id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=gbk AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk AUTO_INCREMENT=1 ;
 
 --
 -- 触发器 `ipVotes`
