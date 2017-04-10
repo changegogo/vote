@@ -10,6 +10,7 @@ if(isset($_GET["name"])){
     $path = "../public/detail/".$_GET["name"].".txt";
     $myfile = fopen($path, "r") or die("没有找到个人事迹");
     header('Content-Type: text/html; charset=utf-8');
+    header("Access-Control-Allow-Origin: *");
     //echo "<pre>";
     echo fread($myfile,filesize($path));
     //echo "</pre>";

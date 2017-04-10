@@ -8,6 +8,8 @@
  */
 
 if(isset($_POST["id"])){
+    header("Access-Control-Allow-Origin: *");
+    header('Content-type: application/json');
     require_once ("func.php");
     require_once ('./OperatorVotingDB.php');
     $id = intval($_POST["id"]); // $id 是整型
@@ -25,7 +27,6 @@ if(isset($_POST["id"])){
         $arr = array("code"=>202, "msg"=>$msg);
         echo json_encode($arr);
     }
-    //echo $msg;
 }else{
     echo '投票失败';
 }

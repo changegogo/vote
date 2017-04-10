@@ -20,7 +20,7 @@
 
     <script type="text/javascript">
         $.ajax({
-            url: "api/info.php",
+            url: "http://20.14.3.175:8080/vote/api/info.php",
             type: "get",
             success: function(data){
                 console.log(JSON.stringify(data));
@@ -40,7 +40,7 @@
         });
         $("#vote").click(function () {
             $.ajax({
-                url: "api/vote.php",
+                url: "http://20.14.3.175:8080/vote/api/vote.php",
                 type: "post",
                 data:{
                     id:  $("#code").html()
@@ -67,7 +67,7 @@
         $("#story").click(function () {
             var name = $("#name").html();
             $.ajax({
-                url: "api/story.php?name="+name,
+                url: "http://20.14.3.175:8080/vote/api/story.php?name="+name,
                 type: "get",
                 success: function(data){
                     alert(data);
