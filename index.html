@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>投票页面</title>
+    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+    <h1>投票</h1>
+    <input id="vote" type="button" value="投票"><br>
+    <span>单位：</span><span id="company"></span><br>
+    <span>姓名：</span><span id="name"></span><br><span id="code"></span>
+    <span>性别：</span><span id="sex"></span><br>
+    <span>年龄：</span><span id="age"></span><br>
+    <span>职务职称：</span><span id="position"></span><br>
+    <span>工种等级：</span><span id="level"></span><br>
+    <span style="color: red;" id="story">详细事迹</span><br>
+    <span>投票数：</span><span id="votecount"></span><br>
+    <img id="photo" src="" alt="" style="width: 100px;">
+
+    <script type="text/javascript">
+        $.ajax({
+            url: "api/info.php",
+            type: "get",
+            success: function(data){
+                console.log(JSON.stringify(data));
+                $("#code").html(data.results.personsInfo[1].id);
+                $("#company").html(data.results.personsInfo[1].company);
+                $("#name").html(data.results.personsInfo[1].name);
+                $("#sex").html(data.results.personsInfo[1].sex);
+                $("#age").html(data.results.personsInfo[1].age);
+                $("#position").html(data.results.personsInfo[1].position);
+                $("#level").html(data.results.personsInfo[1].level);
+                $("#votecount").html(data.results.personsInfo[1].countVotes);
+                $("#photo").attr("src",data.results.personsInfo[1].photoUrl);
+            },
+            error: function (err) {
+
+            }
+        });
+        $("#vote").click(function () {
+            $.ajax({
+                url: "api/vote.php",
+                type: "post",
+                data:{
+                    id:  $("#code").html()
+                },
+                success: function(data){
+                    if(data.code==200){
+                        $("#company").html(data.results.personsInfo[1].company);
+                        $("#name").html(data.results.personsInfo[1].name);
+                        $("#sex").html(data.results.personsInfo[1].sex);
+                        $("#age").html(data.results.personsInfo[1].age);
+                        $("#position").html(data.results.personsInfo[1].position);
+                        $("#level").html(data.results.personsInfo[1].level);
+                        $("#votecount").html(data.results.personsInfo[1].countVotes);
+                        $("#photo").attr("src",data.results.personsInfo[1].photoUrl);
+                    }
+                    alert(data.msg);
+                },
+                error: function (err) {
+
+                }
+            });
+        });
+        // 点击事迹
+        $("#story").click(function () {
+            var name = $("#name").html();
+            $.ajax({
+                url: "api/story.php?name="+name,
+                type: "get",
+                success: function(data){
+                    alert(data);
+                },
+                error: function (err) {
+
+                }
+            });
+        });
+    </script>
+</body>
+</html>
