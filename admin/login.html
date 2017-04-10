@@ -1,0 +1,39 @@
+﻿<body>
+    <form name="loginform">
+        <h2>后台登录</h2>
+        <input id="user" name="user" type="text" size="30" value="" placeholder="请输入用户名"><br>
+        <input id="passwd" name="passwd" type="password" size="30" value="" placeholder="请输入密码"><br>
+        <span id="warn" style="color:red;"></span>
+        <input id="login" type="button" name="登录" value="" class="login-b"  onMouseOver="this.className='login-b2'" onMouseDown="this.className='login-b3'" onMouseOut="this.className='login-b'"/>
+    </form>
+
+    <script type="text/javascript">
+        $("#login").click(function () {
+            var _user = $("#user").val();
+            var _passwd = $("#passwd").val();
+            // 前端验证是否为空
+            if(_user.length==0){
+                $("#warn").html("用户名不能为空");
+                return;
+            }else if(_passwd.length==0){
+                $("#warn").html("密码不能为空");
+                return;
+            }
+
+            $.ajax({
+                url: "",
+                type: "post",
+                data: {
+                    user: _user,
+                    passwd: _passwd
+                },
+                success: function (data) {
+
+                },
+                error: function (err) {
+                    
+                }
+            });
+        });
+    </script>
+</body>

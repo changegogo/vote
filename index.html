@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>投票页面</title>
-    <script src="http://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="public/javascript/jquery-1.10.2.min.js"></script>
 </head>
 <body>
     <h1>投票</h1>
@@ -27,8 +27,6 @@
                     $("<img style='width:100px;'"+"src='"+item.photoUrl+"'/>").appendTo("#pr");
                 });
                 //$("<img src=''/>").appendTo("#pr");
-
-
                 console.log(JSON.stringify(data));
                 $("#code").html(data.results.personsInfo[1].id);
                 $("#company").html(data.results.personsInfo[1].company);

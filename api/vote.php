@@ -8,9 +8,7 @@
  */
 
 if(isset($_POST["id"])){
-    header("Access-Control-Allow-Origin: *");
-    header('Content-type: application/json');
-    require_once ("func.php");
+    require_once("../lib/func.php");
     require_once ('./OperatorVotingDB.php');
     $id = intval($_POST["id"]); // $id 是整型
     $ip = getClientIP();
@@ -19,14 +17,20 @@ if(isset($_POST["id"])){
     if($msg == '投票失败，相同ip需要隔一天才能投票'){
         header('Content-type: application/json');
         $arr = array("code"=>201, "msg"=>$msg);
+        header("Access-Control-Allow-Origin: *");
+        header('Content-type: application/json');
         echo json_encode($arr);
     }else if($msg == '投票成功'){
         require_once ("info.php");
     }else{
+        header("Access-Control-Allow-Origin: *");
         header('Content-type: application/json');
         $arr = array("code"=>202, "msg"=>$msg);
         echo json_encode($arr);
     }
 }else{
-    echo '投票失败';
+    header("Access-Control-Allow-Origin: *");
+    header('Content-type: application/json');
+    $arr = array("code"=>203, "msg"=> "投票失败,缺少id");
+    echo json_decode($arr);
 }

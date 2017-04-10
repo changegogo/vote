@@ -52,10 +52,9 @@ class OperatorVotingDB
             $subsql = "SELECT to_days('$now');";
             $stm = $this->odb->query($subsql)->fetch();
             $time = $stm[0];//使用mysql计算出的today时间
-
             if ($time - $row[0][0] < 1)//表中最大的时间和现在的时间$time比较
             {
-                return "投票失败，相同ip需要隔一天才能投票";
+                return "投票失败，同一ip需要隔一天才能投票";
             }
         }
         // 每个IP地址每天投票总数不超过10票
