@@ -53,7 +53,7 @@
                 }
                 $(".votingKuangText").html(data.msg);
 		        $(".votingKuang").css("display","block");
-	           /* alert(data.msg);*/
+	           /*alert(data.msg);*/
             },
             error: function (err) {
 
@@ -68,7 +68,7 @@
             type: "get",
             success: function(data){
             	$(".detailBox").css("display","block");
-            	$(".textArea").html(data).css("font-size","14px");
+            	$(".textAreaTxt").html(data).css("font-size","14px");
 				$(".detailBoxName").html(name);
             },
             error: function (err) {
@@ -87,8 +87,9 @@
 		$(".votingKuang").css("display","none");
 	})
 	
-	
-		
+	/***点击事迹的弹出框背景的小花**/
+	/*$(".flower:odd").css({"background":" url(../images/flower_s1.png)","padding-left":"100px"});
+	$(".flower:even").css({"background":"url(../images/flowerEven.png)"});*/	
 
 	
 	

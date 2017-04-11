@@ -207,7 +207,7 @@ body{
 	border-radius:20px;
 	position:fixed;
 	left:10%;
-	top:148px;
+	top:100px;
 	z-index:10000;
 	display:none;
 	color:#332f2c;
@@ -240,18 +240,53 @@ body{
 .innerDetailBox h1{
 	text-align:center;
 }
+.flowerSmallBox{
+	width:100%;
+	height:420px;
+}
 .textArea{
-	width:92%;
+	width:100%;
 	height:480px;
-	/*background: #faa;*/
-	margin-top:50px;
-	margin-left:4%;
-	background-image: url(../images/water.png);
-	background-repeat:repeat-x;
-	
+	padding-top:50px;
+	/*background: url(../images/flower_s1.png);*/
+	position:relative;
+}
+.textAreaTxt{
+	width:94%;
+	position:absolute;
+	left:3%;
 }
 .textArea h1{
 	text-align: center;
+}
+/**放小花的盒子**/
+.textAreaFlower{
+	width:100%;
+	height:500px;
+	position:absolute;
+	z-index:1;
+	left:0;
+	top:0;
+
+}
+.flower{
+	display:block;
+	width:100%;
+	height:118px;
+	
+	
+	
+}
+.flower:nth-child(odd){
+	background: url(../images/flowerEven.png);
+	
+	
+	
+}
+.flower:nth-child(even){
+	
+	background: url(../images/flowerEven.png);
+	margin-left:78px;
 }
 /******************点击投票按钮的弹出框***************/
 .votingKuang{
@@ -285,7 +320,7 @@ body{
 	cursor:pointer;
 	
 }
-/**弹出框**/
+
 /**footer**/
 .footer{
 	font-size:15px;
@@ -304,6 +339,4 @@ body{
 .footer p{
 	line-height:27px;
 }
-.footer p:nth-child(){
-	
-}
+
