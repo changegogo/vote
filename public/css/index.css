@@ -1,7 +1,9 @@
 body{
 	width:100%;
-	background:url(../images/bg.png) no-repeat;
-	background-size:cover;
+	background:url(../images/bg1.png) ;
+	background-repeat:repeat-x ;
+	background-size:contain;
+	
 }
 .headerAll{
 	width:100%;
@@ -51,12 +53,12 @@ body{
 }
 .cloud1{
 	position:absolute;
-	right:0;
-	top:216px;
+	right:60px;
+	top:228px;
 }
 .cloud2{
 	position:absolute;
-	left:0;
+	left:20px;
 	top:432px;
 }
 .activityBriefTitle{
@@ -72,6 +74,7 @@ body{
 	line-height:34px;
 	text-indent: 35px;
 }
+
 /**投票说明**/
 .vote{
 	color:#000;
@@ -84,10 +87,10 @@ body{
 	display:none;
 }
 .voteBtn{
-	margin:22px 0;
+	margin:20px 0;
 }
 .vote .one{
-	padding-left:5%;
+	padding-left:5.6%;
 	background: url(../images/one.png) no-repeat left center;
 }
 .vote .two{
@@ -100,20 +103,23 @@ body{
 }
 /**照片区域**/
 .photeArea{
-	position:relative;
-	margin-top:30px;
+	
+	padding-top:30px;
 	overflow: hidden;
+	background: #fff;
+	position:relative;
+	
 }
 
 /** 照片区域title**/
 .photeAreaTitle{
-	width:1309px;
-	background-image: url(../images/silverBg.png);
-	background-repeat: repeat-x
+	width:100%;
 	height:104px;
 	position:relative;
-	margin-bottom:28px;
-	
+}
+.photoAreaTitle .photoAreaTitleBg{
+	display:block;
+	width:1250px;
 }
 .photoAreaTitleText{
 	position:absolute;
@@ -123,32 +129,37 @@ body{
 	font-size:16px;
 }
 
-.position,.level{
-	width:75px;
+.workPlace,.post,.postLevel{
+	width:100px;
 	display:inline-block;
+	white-space:nowrap;
+	text-overflow:ellipsis; 
+	o-text-overflow:ellipsis; 
 	overflow: hidden;
-	text-overflow:ellipsis;
-	white-space: nowrap;
-	
+	/*margin-top:5px; */
 }
 
 
 /***照片框+描述**/
 .photoContent{
-	width:100%;
+	width:98%;
 	margin:0 auto;
+	position:relative;
 }
 
 .eachPhoto{
-	width:25%;
+	width:20%;
 	background: #fff;
+	margin-bottom:10px;
 }
+
 /**照片框**/
 .photo{
+	
 	position:relative;
 	width:107px;
 	height:169px;
-	margin-right:9px;
+	margin-right:6px;
 }
 .photoKuang{
 	position:absolute;
@@ -162,8 +173,11 @@ body{
 	top:15px;
 }
 /**照片框右面的文字**/
+
 .photoText{
+	width:50%;
 	color:#766868;
+	font-size:12px;
 }
 /**单位**/
 .workPlace{
@@ -176,15 +190,70 @@ body{
 }
 .votingBtn{
 	width:72px;
-	height:20px;
+	height:26px;
 	cursor:pointer;
+}
+.photoText li{
+	line-height:18px;
+}
+/**弹出框**/
+.detailBox{
+	width:80%;
+	height:460px;
+	background: #f2f2f2;
+	border-radius:20px;
+	position:fixed;
+	left:10%;
+	top:148px;
+	z-index:10000;
+	display:none;
+	color:#332f2c;
+	
+}
+.closeKuang{
+	position:absolute;
+	right:67px;
+	top:46px;
+}
+.innerDetailBox{
+	width:96%;
+	height:420px;
+	border:1px solid #cacaca;
+	background: #fff;
+	position:absolute;
+	left:2%;
+	top:20px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	background: url(../images/water.png) no-repeat center center;
+	background-size:contain;
+}
+.innerDetailBoxTitle{
+	
+	padding:10px 0;
+	border-bottom:3px solid #f2f2f2;
+	
+}
+.innerDetailBox h1{
+	text-align:center;
+}
+.textArea{
+	
+	width:92%;
+	height:480px;
+	/*background: #faa;*/
+	margin-top:50px;
+	margin-left:4%;
+}
+.textArea h1{
+	text-align: center;
 }
 /**footer**/
 .footer{
 	font-size:15px;
 	height:110px;
 	background:#d0000d;
-	margin-top:20px;
+	/*margin-top:20px;*/
 	color:#fff;
 }
 .footerTextBox{

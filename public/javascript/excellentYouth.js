@@ -61,12 +61,14 @@
     });
     // 点击事迹
     $(".story").click(function () {
-        var name = $(".name").html();
+       var name = $(this).parents(".photoText").find(".name").text();
         $.ajax({
             url: "http://20.14.3.175:8080/vote/api/story.php?name="+name,
             type: "get",
             success: function(data){
-                alert(data);
+            	$(".detailBox").css("display","block");
+            	$(".textArea").html(data).css("font-size","14px");
+				$(".name").html(name);
             },
             error: function (err) {
 
@@ -74,12 +76,17 @@
         });
     });
     
-    
-	$(".detailEvent").click(function(){
-		$(".detailBox").css("display","block");
-	});
-	$(".detailBoxCloseBtn").click(function(){
+   
+	$(".closeKuang").click(function(){
+		$(".innerDetailBox").animate({scrollTop:0},0);
 		$(".detailBox").css("display","none");
 	})
+	
+	
+	
+	
+		
+
+	
 	
 })
