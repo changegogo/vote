@@ -21,14 +21,14 @@
             }
 
             $.ajax({
-                url: "",
+                url: "api/login.php",
                 type: "post",
                 data: {
                     user: _user,
                     passwd: _passwd
                 },
                 success: function (data) {
-
+                    alert(data);
                 },
                 error: function (err) {
                     

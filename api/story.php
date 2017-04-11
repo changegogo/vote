@@ -14,9 +14,9 @@ if(isset($_GET["name"])){
     $myfile = fopen($path, "r") or die("没有找到个人事迹");
     header('Content-Type: text/html; charset=utf-8');
     header("Access-Control-Allow-Origin: *");
-    //echo "<pre>";
+    echo "<pre>";
     echo fread($myfile,filesize($path));
-    //echo "</pre>";
+    echo "</pre>";
     fclose($myfile);
 }else{
     echo "请输入姓名";

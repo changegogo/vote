@@ -58,7 +58,7 @@ class OperatorVotingDB
             }
         }
         // 每个IP地址每天投票总数不超过10票
-        $oversql = "SELECT count(ip) as num FROM ipvotes WHERE IP='$ip' AND serialNumber=1";
+        $oversql = "SELECT count(ip) as num FROM ipvotes WHERE TO_DAYS(voteTime) = TO_DAYS(NOW()) AND IP='$ip' AND serialNumber=1";
         $stm = $this->odb->query($oversql);
         $stm->setFetchMode(PDO::FETCH_ASSOC);
         $arr = $stm->fetchAll();

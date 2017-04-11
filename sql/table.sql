@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS  `voteGroupInfo`(
   `ruleDes` VARCHAR(1000) NOT NULL  COMMENT '投票组规则说明文字',
   `effectStartTime` datetime NOT NULL  COMMENT '投票组生效开始时间',
   `effectEndTime` datetime NOT NULL  COMMENT '投票组截止失效时间',
-  `optionalDataQuantity` INT NOT NULL  COMMENT '备选数据数量',
+  `candidateCount` INT NOT NULL  COMMENT '备选数据数量',
   `ipLimit` INT NOT NULL  COMMENT '投票组IP限制',
   `optionMark` VARCHAR(10) NOT NULL  COMMENT '投票组备选项标识',
   `status` VARCHAR(1) NOT NULL  COMMENT '投票组当前状态',
