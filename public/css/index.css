@@ -41,15 +41,20 @@ body{
 	background: -moz-linear-gradient(#f66701,#fedc34, #ff8e36);
 	background: linear-gradient(#f66701,#fedc34, #ff8e36); 
 	overflow:hidden;
+	
+	
+	
 }
 .activityBrief{
+
 	position:relative;
 	height:202px;
 	border-radius:16px;
 	background: #df2101;
 	color:#fff;
-	background: #df2101;
+	
 	margin-top:34px;
+	background:#df2101 url(../images/star.png) no-repeat;
 }
 .cloud1{
 	position:absolute;
@@ -106,9 +111,8 @@ body{
 	
 	padding-top:30px;
 	overflow: hidden;
-	background: #fff;
+	background: #fff url(../images/water.png) no-repeat center bottom;
 	position:relative;
-	
 }
 
 /** 照片区域title**/
@@ -149,7 +153,6 @@ body{
 
 .eachPhoto{
 	width:20%;
-	background: #fff;
 	margin-bottom:10px;
 }
 
@@ -190,7 +193,7 @@ body{
 }
 .votingBtn{
 	width:72px;
-	height:26px;
+	height:20px;
 	cursor:pointer;
 }
 .photoText li{
@@ -225,11 +228,11 @@ body{
 	top:20px;
 	overflow-y:scroll;
 	overflow-x:hidden;
-	background: url(../images/water.png) no-repeat center center;
-	background-size:contain;
+	
+	
+	/*background-size:contain;*/
 }
 .innerDetailBoxTitle{
-	
 	padding:10px 0;
 	border-bottom:3px solid #f2f2f2;
 	
@@ -238,16 +241,51 @@ body{
 	text-align:center;
 }
 .textArea{
-	
 	width:92%;
 	height:480px;
 	/*background: #faa;*/
 	margin-top:50px;
 	margin-left:4%;
+	background-image: url(../images/water.png);
+	background-repeat:repeat-x;
+	
 }
 .textArea h1{
 	text-align: center;
 }
+/******************点击投票按钮的弹出框***************/
+.votingKuang{
+	width:446px;
+	height:169px;
+	border-radius:5px;
+	background: #f2f2f2;
+	border:1px solid #4C4C4C;
+	position:fixed;
+	left:50%;
+	margin-left:-213px;
+	top:10%;
+	display:none;
+}
+/**弹出框文本框**/
+.votingKuangText{
+	width:90%;
+	height:60px;
+	margin:0 auto;
+	margin-top:50px;
+	
+}
+/**弹出框确认按钮**/
+.votingKuangCloseBtn{
+	width:70px;
+	height:30px;
+	line-height:30px;
+	border:1px solid #3770dc;
+	margin-left:350px;
+	text-align:center;
+	cursor:pointer;
+	
+}
+/**弹出框**/
 /**footer**/
 .footer{
 	font-size:15px;

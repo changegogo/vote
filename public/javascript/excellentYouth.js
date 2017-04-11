@@ -46,13 +46,14 @@
             success: function(data){
                 if(data.code==200){
                 	$(".eachPhoto.divAfter").each(function(index,item){
-                		console.log(index+"-->"+item);
                 		$(this).find(".votecount").html(data.results.personsInfo[index].countVotes);
                 		
                 	})
                 		
                 }
-	            alert(data.msg);
+                $(".votingKuangText").html(data.msg);
+		        $(".votingKuang").css("display","block");
+	           /* alert(data.msg);*/
             },
             error: function (err) {
 
@@ -68,7 +69,7 @@
             success: function(data){
             	$(".detailBox").css("display","block");
             	$(".textArea").html(data).css("font-size","14px");
-				$(".name").html(name);
+				$(".detailBoxName").html(name);
             },
             error: function (err) {
 
@@ -82,7 +83,9 @@
 		$(".detailBox").css("display","none");
 	})
 	
-	
+	$(".votingKuangCloseBtn").click(function(){
+		$(".votingKuang").css("display","none");
+	})
 	
 	
 		
