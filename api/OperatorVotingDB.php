@@ -43,6 +43,28 @@ class OperatorVotingDB
      */
     public function vote($ip, $id)
     {
+        // 插入语句
+        $sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId) VALUES (1, '$ip', NOW(), '$id')";
+        $subsql = "SELECT * FROM ipvotes WHERE serialNumber=1 AND ip='$ip' AND voteTime=NOW() AND countVotingId='$id'";
+        $stm = $this->odb->query($subsql);
+        // 每个IP地址对每位候选人24小时内限投一次
+        if (count($row = $stm->fetchAll()) >= 1) {
+            return "投票失败，同一ip需要隔一天才能投票";
+        }
+        // 每个IP地址每天投票总数不超过10票
+        $oversql = "SELECT count(ip) as num FROM ipvotes WHERE TO_DAYS(voteTime) = TO_DAYS(NOW()) AND IP='$ip' AND serialNumber=1";
+        $stm = $this->odb->query($oversql);
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
+        $arr = $stm->fetchAll();
+        $n =  intval($arr[0]["num"]);
+        if($n>=10){
+            return "每天最多投10次票";
+        }else{
+            $this->odb->exec($sql);
+            return "投票成功";
+        }
+
+        /*********************/
         $sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId) VALUES (1, '$ip', NOW(), '$id')";
         $subsql = "SELECT MAX(to_days(voteTime)) FROM ipvotes WHERE ip='$ip' AND countVotingId='$id'";
         $stm = $this->odb->query($subsql);
