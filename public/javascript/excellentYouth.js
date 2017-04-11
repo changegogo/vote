@@ -77,19 +77,17 @@
         });
     });
     
-   
+    /***详细事迹弹出框的关闭****/
 	$(".closeKuang").click(function(){
-		$(".innerDetailBox").animate({scrollTop:0},0);
 		$(".detailBox").css("display","none");
+		$(".innerDetailBox").animate({scrollTop:0},0);
+		
 	})
-	
+	/***关闭投票按钮的弹出框***/
 	$(".votingKuangCloseBtn").click(function(){
 		$(".votingKuang").css("display","none");
 	})
 	
-	/***点击事迹的弹出框背景的小花**/
-	/*$(".flower:odd").css({"background":" url(../images/flower_s1.png)","padding-left":"100px"});
-	$(".flower:even").css({"background":"url(../images/flowerEven.png)"});*/	
 
 	
 	
