@@ -94,9 +94,9 @@ class OperatorVotingDB
      */
     public function getVotesSortByCount($n = -1)
     {
-        $sql = "SELECT * FROM countVoting ORDER BY id ASC LIMIT 0 , $n;";
+        $sql = "SELECT * FROM countVoting ORDER BY showOrder ASC LIMIT 0 , $n;";
         if (-1 == $n) {
-            $sql = "SELECT * FROM countVoting ORDER BY id ASC;";
+            $sql = "SELECT * FROM countVoting ORDER BY showOrder ASC;";
         }
         //  echo $sql;
         return $this->odb->query($sql);
