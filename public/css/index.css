@@ -166,6 +166,7 @@ body{
 .photoContent{
 	width:98%;
 	margin:0 auto;
+	margin-left:3%;
 	position:relative;
 }
 
