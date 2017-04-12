@@ -8,8 +8,8 @@ class OperatorDB
     //root feicui123
     //连接数据库的基本信息
     private $dbms='mysql';       //数据库类型,对于开发者来说，使用不同的数据库，只要改这个.
-    private $host='127.0.0.1:3306';  //数据库主机名
-    private $dbName='vote';     //使用的数据库
+    private $host='127.0.0.1';  //数据库主机名
+    private $dbName='dailiwang';     //使用的数据库
     private $user='root';       //数据库连接用户名
     private $passwd='feicui123';     //对应的密码
     private $pdo=null;
