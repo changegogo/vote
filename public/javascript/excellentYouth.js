@@ -2,9 +2,11 @@
 
 	/**更新照片和人物信息**/
 	$.ajax({
-            url: "http://20.14.3.175:8080/vote/api/info.php",
+            url: "http://20.14.3.175:8080/vote/api/info.php?seqVote="+(localStorage.seqvote?localStorage.seqvote:""),
             type: "get",
             success: function(data){
+            	// 存入token到localstrage
+                localStorage.seqvote=data.results.seqVote;
             	var div = $(".eachPhoto.fl.div");
             	data.results.personsInfo.forEach(function(item,index){
             		var self = div.clone(true);
@@ -20,9 +22,9 @@
 	               	self.find(".votecount").html(item.countVotes);
 	               /* self.find(".photoPic").attr("src",item.photoUrl);*/
 	                
-	               	self.find(".companyWhole").html(item.company);
-	                self.find(".positionWhole").html(item.position);
-	                self.find(".levelWhole").html(item.level);
+	               	self.find(".company").attr("title",item.company);
+	                self.find(".position").attr("title",item.position);
+	                self.find(".level").attr("title",item.level);
 	            });
             	
             	/**更新活动简介内容**/
@@ -33,6 +35,7 @@
             	$(".one").text(newRuleDesArray[0]);
             	$(".two").text(newRuleDesArray[1]);
             	$(".three").text(newRuleDesArray[2]);
+            	$(".four").text(newRuleDesArray[3]);
             },
             error: function (err) {
 
@@ -45,13 +48,13 @@
             url: "http://20.14.3.175:8080/vote/api/vote.php",
             type: "post",
             data:{
-                id: _id
+                id: _id,
+                seqVote: localStorage.seqvote
             },
             success: function(data){
                 if(data.code==200){
                 	$(".eachPhoto.divAfter").each(function(index,item){
                 		$(this).find(".votecount").html(data.results.personsInfo[index].countVotes);
-                		
                 	})
                 		
                 }
@@ -93,7 +96,7 @@
 	})
 	
 	/**文字超出部分省列号，鼠标悬停呈现整体文字内容**/
-	$(".company").hover(function(){
+	/*$(".company").hover(function(){
 		
 		$(this).parent().find(".companyWhole").css("display","block");
 	},function(){
@@ -111,5 +114,5 @@
 	},function(){
 		$(this).parent().find(".levelWhole").css("display","none");
 	})
-	
+	*/
 })

@@ -41,9 +41,32 @@ class OperatorVotingDB
      * @param type $time
      * @param type $name
      */
-    public function vote($ip, $id)
+    public function vote($ip, $id, $seq="123")
     {
-        $sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId) VALUES (1, '$ip', NOW(), '$id')";
+        // 插入语句
+        $sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId, seq) VALUES (1, '$ip', NOW(), '$id',$seq)";
+        $subsql = "SELECT * FROM ipvotes WHERE serialNumber=1 AND ip='$ip' AND TO_DAYS(voteTime)=TO_DAYS(NOW()) AND countVotingId='$id' AND seq='$seq'";
+        $stm = $this->odb->query($subsql);
+        $c = count($row = $stm->fetchAll());
+        // 每个IP地址对每位候选人24小时内限投一次
+        if ($c >= 1) {
+            return "您已经对此人投过票了";
+        }
+        // 每个IP地址每天投票总数不超过10票
+        $oversql = "SELECT count(ip) as num FROM ipvotes WHERE serialNumber=1 AND TO_DAYS(voteTime) = TO_DAYS(NOW()) AND IP='$ip' AND seq='$seq'";
+        $stm = $this->odb->query($oversql);
+        $stm->setFetchMode(PDO::FETCH_ASSOC);
+        $arr = $stm->fetchAll();
+        $n =  intval($arr[0]["num"]);
+        if($n>=10){
+            return "每天最多投10次票";
+        }else{
+            $this->odb->exec($sql);
+            return "投票成功";
+        }
+
+        /*********************/
+        /*$sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId) VALUES (1, '$ip', NOW(), '$id')";
         $subsql = "SELECT MAX(to_days(voteTime)) FROM ipvotes WHERE ip='$ip' AND countVotingId='$id'";
         $stm = $this->odb->query($subsql);
         // 每个IP地址对每位候选人24小时内限投一次
@@ -68,7 +91,7 @@ class OperatorVotingDB
         }else{
             $this->odb->exec($sql);
             return "投票成功";
-        }
+        }*/
     }
 
     /**
@@ -94,9 +117,9 @@ class OperatorVotingDB
      */
     public function getVotesSortByCount($n = -1)
     {
-        $sql = "SELECT * FROM countVoting ORDER BY id ASC LIMIT 0 , $n;";
+        $sql = "SELECT * FROM countVoting ORDER BY showOrder ASC LIMIT 0 , $n;";
         if (-1 == $n) {
-            $sql = "SELECT * FROM countVoting ORDER BY id ASC;";
+            $sql = "SELECT * FROM countVoting ORDER BY showOrder ASC;";
         }
         //  echo $sql;
         return $this->odb->query($sql);
@@ -113,6 +136,13 @@ class OperatorVotingDB
     public function getVotesGroupInfo()
     {
         $sql = "SELECT * FROM votegroupinfo order by serialNumber DESC LIMIT 1;";
+
+        //  echo $sql;
+        return $this->odb->query($sql);
+    }
+
+    public function getSequeceValue(){
+        $sql = "SELECT NEXTVAL('seq') as value;";
 
         //  echo $sql;
         return $this->odb->query($sql);

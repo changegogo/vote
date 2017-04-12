@@ -18,9 +18,15 @@
     <span>投票数：</span><span id="votecount"></span><br>
     <img id="photo" src="" alt="" style="width: 100px;">
     <div id="pr"></div>
+
+    <script type="text/javascript">
+        //localStorage.lastname="大东方大厦范德萨发";
+        //document.write(localStorage.lastname);
+    </script>
+
     <script type="text/javascript">
         $.ajax({
-            url: "http://20.14.3.175:8080/vote/api/info.php",
+            url: "api/info.php",
             type: "get",
             success: function(data){
                 data.results.personsInfo.forEach(function(item){
@@ -44,7 +50,7 @@
         });
         $("#vote").click(function () {
             $.ajax({
-                url: "http://20.14.3.175:8080/vote/api/vote.php",
+                url: "api/vote.php",
                 type: "post",
                 data:{
                     id:  $("#code").html()
@@ -71,7 +77,7 @@
         $("#story").click(function () {
             var name = $("#name").html();
             $.ajax({
-                url: "http://20.14.3.175:8080/vote/api/story.php?name="+name,
+                url: "api/story.php?name="+name,
                 type: "get",
                 success: function(data){
                     alert(data);

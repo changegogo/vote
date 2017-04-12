@@ -6,6 +6,20 @@
  * Time: 18:49
  * 投票页面信息数据接口
  */
+// 判断前端中是否有对应的cookie
+// 如果没有就生成一个
+/*if(!isset($_COOKIE["sequece"])){
+    $seq = require_once ("sequece.php");
+    setcookie("sequece",$seq);
+}*/
+$seq = "";
+if(!isset($_GET["seqVote"]) || $_GET["seqVote"]==""){
+    // 生成token
+    $seq = require_once ("sequece.php");
+}else{
+    $seq = $_GET["seqVote"];
+}
+
 require_once('OperatorVotingDB.php');
 $ovdb = new OperatorVotingDB();
 // 获取投票组信息
@@ -19,7 +33,7 @@ $row = $ovdb->getVotesSortByCount();
 $row->setFetchMode(PDO::FETCH_ASSOC);
 $personsInfo = $row->fetchAll();
 // 引入候选人信息类
-$resultArr = array("voteGroupInfo"=>$voteGroupInfo, "personsInfo"=>$personsInfo);
+$resultArr = array("seqVote"=>$seq, "voteGroupInfo"=>$voteGroupInfo, "personsInfo"=>$personsInfo);
 $arr = array("code"=>200,"msg"=>"成功","results"=>$resultArr);
 header("Access-Control-Allow-Origin: *");
 header('Content-type: application/json');
