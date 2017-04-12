@@ -16,8 +16,6 @@ class OperatorDB
     private $dsn = "";
 
     public function  __construct(){
-		//dl("php_pdo.dll");
-		//dl("php_pdo_mysql.dll");
         $this->dsn="$this->dbms:host=$this->host;dbname=$this->dbName";
         try {
             $this->pdo=new PDO($this->dsn,$this->user,$this->passwd);//初始化一个PDO对象，就是创建了数据库连接对象$db

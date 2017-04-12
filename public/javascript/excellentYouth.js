@@ -50,7 +50,6 @@
                 if(data.code==200){
                 	$(".eachPhoto.divAfter").each(function(index,item){
                 		$(this).find(".votecount").html(data.results.personsInfo[index].countVotes);
-                		
                 	})
                 		
                 }
