@@ -86,7 +86,7 @@
     
     /***详细事迹弹出框的关闭****/
 	$(".closeKuang").click(function(){
-		$(".detailBox").css("display","none");
+		$(".detailBigBox").css("display","none");
 		$(".innerDetailBox").animate({scrollTop:0},0);
 		
 	})
