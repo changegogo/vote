@@ -61,13 +61,17 @@
 					</div>
 					<ul class="photoText fl">
 						<li class="workPlace">单位：<span class="company"></span>
-							<!--<a href="#" class="companyWhole"></a>-->
+							<a href="#" class="companyWhole" alt=""></a>
 						</li>
 						<li>姓名：<span class="name"></span><span class="code"></span></li>
 						<li>性别：<span class="sex"></span></li>
 						<li>年龄：<span class="age"></span></li>
-						<li class="post">职务职称：<span class="position"></span></li>
-						<li class="postLevel">工种等级：<span class="level"></span></li>
+						<li class="post">职务职称：<span class="position"></span>
+							<a href="#" class="positionWhole"></a>
+						</li>
+						<li class="postLevel">工种等级：<span class="level"></span>
+							<a href="#" class="levelWhole" alt=""></a>
+						</li>
 						<li class="story">详细事迹</li>
 						<li>投票数：<span class="votecount"></span></li>
 						<li>
@@ -78,7 +82,16 @@
 				
 			</div>
 		</div>
-		<!---点击详细事迹，弹出框-->
+		
+		<!---点击投票按钮的弹出框-->
+		<div class="votingKuang">
+			<div class="votingKuangTitle">您投票的结果：</div>
+			<div class="votingKuangText"></div>	
+			<div class="votingKuangCloseBtn">确定</div>
+		</div>
+	</div>
+	<!---点击详细事迹，弹出框-->
+	<div class="detailBigBox">
 		<div class="detailBox">
 			<div class="innerDetailBox">
 				<div class="innerDetailBoxTitle">
@@ -87,10 +100,10 @@
 				</div>
 				<div class="textArea">
 					<ul class="textAreaFlower">
-						<li class="flower"></li>
-						<li class="flower"></li>
-						<li class="flower"></li>
-						<li class="flower"></li>
+						<li class="flower flower1"></li>
+						<li class="flower flower2"></li>
+						<li class="flower flower1"></li>
+						<!--<li class="flower flower2"></li>-->
 					</ul>
 					<div class="textAreaTxt"></div>
 				</div>
@@ -102,19 +115,14 @@
 			</div>
 			<img class="closeKuang" src="public/images/closeKuang.png" alt="" />
 		</div>
-		<!---点击投票按钮的弹出框-->
-		<div class="votingKuang">
-			<div class="votingKuangTitle">您投票的结果：</div>
-			<div class="votingKuangText"></div>	
-			<div class="votingKuangCloseBtn">确定</div>
-		</div>
-	</div>
-	
+	</div>	
+		
 	<!--尾部-->
 	<div class="footer innerWrap">
 		<div class="footerTextBox">
 			<p>主办单位：蜀南气矿</p>
-			<p>内容支持：蜀南气矿团委 青工办工作办公室</p>
+			<p>内容支持：蜀南气矿团委 青工办工作</p>
+			<p>办公室</p>
 		</div>
 		
 	</div>

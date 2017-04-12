@@ -18,7 +18,11 @@
 	                self.find(".position").html(item.position);
 	                self.find(".level").html(item.level);
 	               	self.find(".votecount").html(item.countVotes);
-	                self.find(".photoPic").attr("src",item.photoUrl);
+	               /* self.find(".photoPic").attr("src",item.photoUrl);*/
+	                
+	               	self.find(".companyWhole").html(item.company);
+	                self.find(".positionWhole").html(item.position);
+	                self.find(".levelWhole").html(item.level);
 	            });
             	
             	/**更新活动简介内容**/
@@ -56,7 +60,7 @@
 	           /*alert(data.msg);*/
             },
             error: function (err) {
-
+				alert("error");
             }
         });
     });
@@ -67,7 +71,7 @@
             url: "http://20.14.3.175:8080/vote/api/story.php?name="+name,
             type: "get",
             success: function(data){
-            	$(".detailBox").css("display","block");
+            	$(".detailBigBox").css("display","block");
             	$(".textAreaTxt").html(data).css("font-size","14px");
 				$(".detailBoxName").html(name);
             },
@@ -88,7 +92,24 @@
 		$(".votingKuang").css("display","none");
 	})
 	
-
+	/**文字超出部分省列号，鼠标悬停呈现整体文字内容**/
+	$(".company").hover(function(){
+		
+		$(this).parent().find(".companyWhole").css("display","block");
+	},function(){
+		$(this).parent().find(".companyWhole").css("display","none");
+	})
 	
+	$(".position").hover(function(){
+		$(this).parent().find(".positionWhole").css("display","block");
+	},function(){
+		$(this).parent().find(".positionWhole").css("display","none");
+	})
+	
+	$(".level").hover(function(){
+		$(this).parent().find(".levelWhole").css("display","block");
+	},function(){
+		$(this).parent().find(".levelWhole").css("display","none");
+	})
 	
 })
