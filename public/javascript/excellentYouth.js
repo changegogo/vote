@@ -2,7 +2,7 @@
 
 	/**更新照片和人物信息**/
 	$.ajax({
-            url: "api/info.php?seqVote="+(localStorage.seqvote?localStorage.seqvote:""),
+            url: "http://20.14.3.175:8080/vote/api/info.php?seqVote="+(localStorage.seqvote?localStorage.seqvote:""),
             type: "get",
             success: function(data){
             	// 存入token到localstrage
@@ -20,7 +20,11 @@
 	                self.find(".position").html(item.position);
 	                self.find(".level").html(item.level);
 	               	self.find(".votecount").html(item.countVotes);
-	                self.find(".photoPic").attr("src",item.photoUrl);
+	               /* self.find(".photoPic").attr("src",item.photoUrl);*/
+	                
+	               	self.find(".company").attr("title",item.company);
+	                self.find(".position").attr("title",item.position);
+	                self.find(".level").attr("title",item.level);
 	            });
             	
             	/**更新活动简介内容**/
@@ -31,6 +35,7 @@
             	$(".one").text(newRuleDesArray[0]);
             	$(".two").text(newRuleDesArray[1]);
             	$(".three").text(newRuleDesArray[2]);
+            	$(".four").text(newRuleDesArray[3]);
             },
             error: function (err) {
 
@@ -40,7 +45,7 @@
     $(".votingBtn").click(function () {
     	var _id = $(this).parents(".photoText").find(".code").text();
         $.ajax({
-            url: "api/vote.php",
+            url: "http://20.14.3.175:8080/vote/api/vote.php",
             type: "post",
             data:{
                 id: _id,
@@ -58,7 +63,7 @@
 	           /*alert(data.msg);*/
             },
             error: function (err) {
-				alert(err);
+				alert("error");
             }
         });
     });
@@ -66,10 +71,10 @@
     $(".story").click(function () {
        var name = $(this).parents(".photoText").find(".name").text();
         $.ajax({
-            url: "api/story.php?name="+name,
+            url: "http://20.14.3.175:8080/vote/api/story.php?name="+name,
             type: "get",
             success: function(data){
-            	$(".detailBox").css("display","block");
+            	$(".detailBigBox").css("display","block");
             	$(".textAreaTxt").html(data).css("font-size","14px");
 				$(".detailBoxName").html(name);
             },
@@ -90,7 +95,24 @@
 		$(".votingKuang").css("display","none");
 	})
 	
-
+	/**文字超出部分省列号，鼠标悬停呈现整体文字内容**/
+	/*$(".company").hover(function(){
+		
+		$(this).parent().find(".companyWhole").css("display","block");
+	},function(){
+		$(this).parent().find(".companyWhole").css("display","none");
+	})
 	
+	$(".position").hover(function(){
+		$(this).parent().find(".positionWhole").css("display","block");
+	},function(){
+		$(this).parent().find(".positionWhole").css("display","none");
+	})
 	
+	$(".level").hover(function(){
+		$(this).parent().find(".levelWhole").css("display","block");
+	},function(){
+		$(this).parent().find(".levelWhole").css("display","none");
+	})
+	*/
 })

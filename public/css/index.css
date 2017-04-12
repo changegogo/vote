@@ -35,7 +35,7 @@ body{
 	max-width:100%;
 }
 .activityBriefContainer{
-	height:534px;
+	height:440px;
 	background: -webkit-linear-gradient(#f66701,#fedc34, #ff8e36);
 	background: -o-linear-gradient(#f66701, #fedc34, #ff8e36); 
 	background: -moz-linear-gradient(#f66701,#fedc34, #ff8e36);
@@ -46,14 +46,12 @@ body{
 	
 }
 .activityBrief{
-
-	position:relative;
+    position:relative;
 	height:202px;
 	border-radius:16px;
 	background: #df2101;
 	color:#fff;
-	
-	margin-top:34px;
+	margin-top:22px;
 	background:#df2101 url(../images/star.png) no-repeat;
 }
 .cloud1{
@@ -64,11 +62,11 @@ body{
 .cloud2{
 	position:absolute;
 	left:20px;
-	top:432px;
+	top:340px;
 }
 .activityBriefTitle{
 	font-size:24px;
-	padding-top:30px;
+	padding-top:20px;
 	padding-bottom:20px;
 	text-align:center;
 }
@@ -85,31 +83,36 @@ body{
 	color:#000;
 	width:80%;
 	margin:0 auto;
-	font-size:16px;
-	line-height:46px;
+	font-size:15px;
+	line-height:30px;
 }
 .code{
 	display:none;
 }
 .voteBtn{
-	margin:20px 0;
+	margin-top:16px;
+	margin-bottom:6px;
 }
 .vote .one{
 	padding-left:5.6%;
-	background: url(../images/one.png) no-repeat left center;
+	background: url(../images/1.png) no-repeat left center;
 }
 .vote .two{
 	padding-left:5%;
-	background: url(../images/two.png) no-repeat left center;
+	background: url(../images/2.png) no-repeat left center;
 }
 .vote .three{
 	padding-left:5%;
-	background: url(../images/three.png) no-repeat left center;
+	background: url(../images/3.png) no-repeat left center;
+}
+.vote .four{
+	padding-left:5.5%;
+	background: url(../images/4.png) no-repeat left center;
 }
 /**照片区域**/
 .photeArea{
 	
-	padding-top:30px;
+	padding-top:20px;
 	overflow: hidden;
 	background: #fff url(../images/water.png) no-repeat center bottom;
 	position:relative;
@@ -118,7 +121,7 @@ body{
 /** 照片区域title**/
 .photeAreaTitle{
 	width:100%;
-	height:104px;
+	height:82px;
 	position:relative;
 }
 .photoAreaTitle .photoAreaTitleBg{
@@ -133,15 +136,30 @@ body{
 	font-size:16px;
 }
 
-.workPlace,.post,.postLevel{
-	width:100px;
+.company,.post,.level{
 	display:inline-block;
 	white-space:nowrap;
 	text-overflow:ellipsis; 
 	o-text-overflow:ellipsis; 
 	overflow: hidden;
-	/*margin-top:5px; */
+	
+	cursor:pointer;
 }
+.company{
+	width:60%;
+	margin-bottom:-4px;
+	
+}
+.post{
+	width:100%;
+	
+}
+.level{
+	width:50%;
+	margin-bottom:-2px;
+	
+}
+
 
 
 /***照片框+描述**/
@@ -152,8 +170,10 @@ body{
 }
 
 .eachPhoto{
-	width:20%;
+	width:25%;
 	margin-bottom:10px;
+	font-size:12px;
+	color:#766868;
 }
 
 /**照片框**/
@@ -179,8 +199,8 @@ body{
 
 .photoText{
 	width:50%;
-	color:#766868;
-	font-size:12px;
+	
+	
 }
 /**单位**/
 .workPlace{
@@ -199,18 +219,28 @@ body{
 .photoText li{
 	line-height:18px;
 }
+
 /**弹出框**/
+.detailBigBox{
+	width:100%;
+	height:100%;
+	z-index:1000000;
+	position:fixed;
+	left:0;
+	top:0;
+	display:none;
+}
 .detailBox{
 	width:80%;
 	height:460px;
+	position:absolute;
+	top:100px;
+	left:10%;
 	background: #f2f2f2;
 	border-radius:20px;
-	position:fixed;
-	left:10%;
-	top:100px;
-	z-index:10000;
-	display:none;
+	
 	color:#332f2c;
+	
 	
 }
 .closeKuang{
@@ -261,12 +291,12 @@ body{
 }
 /**放小花的盒子**/
 .textAreaFlower{
-	width:80%;
+	width:77.5%;
 	height:auto;
 	position:fixed;
-	
-	top:216px;
+	top:202px;
 	margin:0 auto;
+	margin-left:-30px;
 	
 
 }
@@ -274,7 +304,10 @@ body{
 	display:block;
 	width:100%;
 	height:auto;
-	height:118px;
+	height:116px;
+}
+.flower2{
+	width:93%;
 }
 .flower:nth-child(odd){
 	background: url(../images/flowerEven.png);
