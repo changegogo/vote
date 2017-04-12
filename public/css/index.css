@@ -35,7 +35,7 @@ body{
 	max-width:100%;
 }
 .activityBriefContainer{
-	height:440px;
+	height:410px;
 	background: -webkit-linear-gradient(#f66701,#fedc34, #ff8e36);
 	background: -o-linear-gradient(#f66701, #fedc34, #ff8e36); 
 	background: -moz-linear-gradient(#f66701,#fedc34, #ff8e36);
@@ -62,7 +62,7 @@ body{
 .cloud2{
 	position:absolute;
 	left:20px;
-	top:340px;
+	top:330px;
 }
 .activityBriefTitle{
 	font-size:24px;
