@@ -2,9 +2,11 @@
 
 	/**更新照片和人物信息**/
 	$.ajax({
-            url: "http://20.14.3.175:8080/vote/api/info.php",
+            url: "api/info.php?seqVote="+(localStorage.seqvote?localStorage.seqvote:""),
             type: "get",
             success: function(data){
+            	// 存入token到localstrage
+                localStorage.seqvote=data.results.seqVote;
             	var div = $(".eachPhoto.fl.div");
             	data.results.personsInfo.forEach(function(item,index){
             		var self = div.clone(true);
@@ -38,10 +40,11 @@
     $(".votingBtn").click(function () {
     	var _id = $(this).parents(".photoText").find(".code").text();
         $.ajax({
-            url: "http://20.14.3.175:8080/vote/api/vote.php",
+            url: "api/vote.php",
             type: "post",
             data:{
-                id: _id
+                id: _id,
+                seqVote: localStorage.seqvote
             },
             success: function(data){
                 if(data.code==200){
@@ -56,7 +59,7 @@
 	           /*alert(data.msg);*/
             },
             error: function (err) {
-
+				alert(err);
             }
         });
     });
@@ -64,7 +67,7 @@
     $(".story").click(function () {
        var name = $(this).parents(".photoText").find(".name").text();
         $.ajax({
-            url: "http://20.14.3.175:8080/vote/api/story.php?name="+name,
+            url: "api/story.php?name="+name,
             type: "get",
             success: function(data){
             	$(".detailBox").css("display","block");
