@@ -95,24 +95,5 @@
 		$(".votingKuang").css("display","none");
 	})
 	
-	/**文字超出部分省列号，鼠标悬停呈现整体文字内容**/
-	/*$(".company").hover(function(){
-		
-		$(this).parent().find(".companyWhole").css("display","block");
-	},function(){
-		$(this).parent().find(".companyWhole").css("display","none");
-	})
 	
-	$(".position").hover(function(){
-		$(this).parent().find(".positionWhole").css("display","block");
-	},function(){
-		$(this).parent().find(".positionWhole").css("display","none");
-	})
-	
-	$(".level").hover(function(){
-		$(this).parent().find(".levelWhole").css("display","block");
-	},function(){
-		$(this).parent().find(".levelWhole").css("display","none");
-	})
-	*/
 })
