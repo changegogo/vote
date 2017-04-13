@@ -10,6 +10,7 @@ if(isset($_GET["name"])){
     // 获取汉字的拼音
     //require_once ("../lib/pinyin.php");
     //$p = get_pinyin("蜀南气矿十大");
+    $name = $_GET["name"];
     $dir=iconv("utf-8","gb2312",$_GET["name"]);
     $path = "../public/votegroup/shunanqikuangshida/story/".$dir.".txt";
     //$path = "11.txt";

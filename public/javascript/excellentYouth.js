@@ -71,8 +71,9 @@
     // 点击事迹
     $(".story").click(function () {
        var name = $(this).parents(".photoText").find(".name").text();
+       var _url = "api/story.php?name="+encodeURI(name);
         $.ajax({
-            url: "api/story.php?name="+name,
+            url: _url,
             type: "get",
             success: function(data){
             	$(".detailBigBox").css("display","block");
@@ -80,7 +81,7 @@
 				$(".detailBoxName").html(name);
             },
             error: function (err) {
-
+				console.log("error");
             }
         });
     });
