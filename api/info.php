@@ -8,13 +8,13 @@
  */
 // 判断前端中是否有对应的cookie
 // 如果没有就生成一个
-$seq = "";
+/*$seq = "";
 if(!isset($_GET["seqVote"]) || $_GET["seqVote"]==""){
     // 生成token
     $seq = require_once ("sequece.php");
 }else{
     $seq = $_GET["seqVote"];
-}
+}*/
 
 require_once('OperatorVotingDB.php');
 $ovdb = new OperatorVotingDB();
@@ -35,9 +35,9 @@ while ($row=mysqli_fetch_assoc($personAll))
 }
 
 // 引入候选人信息类
-$resultArr = array("seqVote"=>$seq, "voteGroupInfo"=>$voteGroupInfo, "personsInfo"=>$personsInfo);
+$resultArr = array(/*"seqVote"=>$seq, */"voteGroupInfo"=>$voteGroupInfo, "personsInfo"=>$personsInfo);
 
 $arr = array("code"=>200,"msg"=>"成功","results"=>$resultArr);
 header("Access-Control-Allow-Origin: *");
-header('Content-type: application/json');
+header('Content-type: application/json;charset=UTF-8');
 print_r(json_encode($arr));

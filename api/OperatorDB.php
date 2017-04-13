@@ -11,8 +11,8 @@ class OperatorDB
     private $host='127.0.0.1';      //数据库主机名
     private $dbName='vote';    //使用的数据库
     private $user='root';           //数据库连接用户名
-    private $passwd='snqk_mysqldb123';    //对应的密码
-    //private $passwd='feicui123';    //对应的密码
+    //private $passwd='snqk_mysqldb123';    //对应的密码
+    private $passwd='feicui123';    //对应的密码
     private $pdo=null;
     private $dsn = "";
     // mysqli对象
@@ -24,6 +24,7 @@ class OperatorDB
         if ($this->mysqli->connect_error) {
             die("mysqli连接失败: " . $this->mysqli->connect_error);
         }
+        mysqli_set_charset( $this->mysqli,"utf8");
     }
     public function __destruct(){
         $this->mysqli = null;

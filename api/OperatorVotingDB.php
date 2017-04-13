@@ -41,11 +41,11 @@ class OperatorVotingDB
      * @param type $time
      * @param type $name
      */
-    public function vote($ip, $id, $seq="123")
+    public function vote($ip, $id, $seq="0")
     {
         // 插入语句
-        $sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId, seq) VALUES (1, '$ip', NOW(), '$id',$seq)";
-        $subsql = "SELECT * FROM ipvotes WHERE serialNumber=1 AND ip='$ip' AND TO_DAYS(voteTime)=TO_DAYS(NOW()) AND countVotingId='$id' AND seq='$seq'";
+        $sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId) VALUES (1, '$ip', NOW(), '$id')";
+        $subsql = "SELECT * FROM ipvotes WHERE serialNumber=1 AND ip='$ip' AND TO_DAYS(voteTime)=TO_DAYS(NOW()) AND countVotingId='$id'";
         $stm = $this->odb->query($subsql);
 
         $row=mysqli_fetch_array($stm);
