@@ -2,7 +2,7 @@
 
 	/**更新照片和人物信息**/
 	$.ajax({
-            url: "http://20.14.3.175:8080/vote/api/info.php?seqVote="+(localStorage.seqvote?localStorage.seqvote:""),
+            url: "api/info.php?seqVote="+(localStorage.seqvote?localStorage.seqvote:""),
             type: "get",
             success: function(data){
             	// 存入token到localstrage
@@ -45,7 +45,7 @@
     $(".votingBtn").click(function () {
     	var _id = $(this).parents(".photoText").find(".code").text();
         $.ajax({
-            url: "http://20.14.3.175:8080/vote/api/vote.php",
+            url: "api/vote.php",
             type: "post",
             data:{
                 id: _id,
@@ -71,7 +71,7 @@
     $(".story").click(function () {
        var name = $(this).parents(".photoText").find(".name").text();
         $.ajax({
-            url: "http://20.14.3.175:8080/vote/api/story.php?name="+name,
+            url: "api/story.php?name="+name,
             type: "get",
             success: function(data){
             	$(".detailBigBox").css("display","block");

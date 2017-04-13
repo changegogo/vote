@@ -8,10 +8,6 @@
  */
 // 判断前端中是否有对应的cookie
 // 如果没有就生成一个
-/*if(!isset($_COOKIE["sequece"])){
-    $seq = require_once ("sequece.php");
-    setcookie("sequece",$seq);
-}*/
 $seq = "";
 if(!isset($_GET["seqVote"]) || $_GET["seqVote"]==""){
     // 生成token
@@ -24,16 +20,23 @@ require_once('OperatorVotingDB.php');
 $ovdb = new OperatorVotingDB();
 // 获取投票组信息
 $voteGroup = $ovdb->getVotesGroupInfo();
-$voteGroup->setFetchMode(PDO::FETCH_ASSOC);
-$arr = $voteGroup->fetchAll();
-$voteGroupInfo = $arr[0];
-
+// 循环取出记录
+$voteGroupInfo = "";
+while ($row=mysqli_fetch_assoc($voteGroup))
+{
+    $voteGroupInfo = $row;
+}
 //获取23名候选人信息
-$row = $ovdb->getVotesSortByCount();
-$row->setFetchMode(PDO::FETCH_ASSOC);
-$personsInfo = $row->fetchAll();
+$personAll = $ovdb->getVotesSortByCount();
+$personsInfo = array();
+while ($row=mysqli_fetch_assoc($personAll))
+{
+    array_push($personsInfo,$row);
+}
+
 // 引入候选人信息类
 $resultArr = array("seqVote"=>$seq, "voteGroupInfo"=>$voteGroupInfo, "personsInfo"=>$personsInfo);
+
 $arr = array("code"=>200,"msg"=>"成功","results"=>$resultArr);
 header("Access-Control-Allow-Origin: *");
 header('Content-type: application/json');

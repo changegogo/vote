@@ -22,7 +22,7 @@ create table votegroupinfo
    createTime           date not null,
    modifyTime           date not null,
    primary key (serialNumber)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=gbk COMMENT='投票组信息表';
 alter table votegroupinfo comment '投票的信息表,一条记录就是一种类型的投票各种配置数据.投票组IP限制 0 表示不显示，填写数';
 
 INSERT INTO `votegroupinfo` VALUES (1, '蜀南气矿', '开展蜀南气矿第二届“十大杰出青年”评选活动，旨在选树、宣传和表彰在气矿三大工程建设中做出重大贡献、取得突出业绩的杰出青年典型，为广大青年树立榜样，优化青年成长成才环境，打造青年人才培养任用渠道，激励广大青年发奋学习、勤奋工作、艰苦创业、成长成才，积极投身于分公司300亿战略大气区建设和气矿三大工程建设。', '123.png', '投票时间：2017年4月17日到2017年4月27日&每个IP地址对每位候选人24小时内限投一次，每个IP地址每天投票总数不超过10票&投票结束后，气矿青年工作办公室将对候选人票数进行汇总，其结果提交给蜀南气矿第二届“十大杰出青年”评选活动组委会&按姓氏笔画排序', '2017-4-17 00:00:00', '2017-4-27 00:00:00', 23, 1, '1', '1', '2017-4-9 21:49:10', '2017-4-9 21:49:13');
@@ -51,7 +51,7 @@ create table countvoting
    option_five          varchar(400) DEFAULT "",
    stroy                varchar(4000) DEFAULT "",
    primary key (id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 
 drop table if exists ipvotes;
 
@@ -66,7 +66,7 @@ create table ipvotes
    countVotingId        int not null,
    seq                  bigint,
    primary key (serialNumber, ip, voteTime, countVotingId)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 
 alter table ipvotes comment 'IP地址限制数据';
 
@@ -84,7 +84,7 @@ create table user
    type                 varchar(20),
    email                varchar(60),
    primary key (userid)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=gbk;
 
 alter table user comment '用户信息表,目前就存个后台的账户';
 
@@ -182,26 +182,26 @@ CREATE TRIGGER `vote_count_after_insert_tr` AFTER INSERT ON `ipVotes`
 DELIMITER ;
 
 
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(0,1,"public/votegroup/shunanqikuangshida/photo/zhuqing.jpg","开发科","朱庆","男","33","工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(1,2,"public/votegroup/shunanqikuangshida/photo/zengzhengrong.jpg","质量安全环保科","曾正荣","男","31","工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(2,3,"public/votegroup/shunanqikuangshida/photo/yangkun.jpg","新闻中心","杨锟","女","33","政工师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(3,4,"public/votegroup/shunanqikuangshida/photo/zhangyong.jpg","塔里木油气工程分公司","张勇","男","31","工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(4,5,"public/votegroup/shunanqikuangshida/photo/luoyuhe.jpg","自贡采气作业区","罗玉合","男",35,"生产技术室主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(5,6,"public/votegroup/shunanqikuangshida/photo/wangchuanjie.jpg","乐山采气作业区","王川杰","男",34,"生产技术室副主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(6,1,"public/votegroup/shunanqikuangshida/photo/zhuqing.jpg","开发科","朱庆","男","33","工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(12,2,"public/votegroup/shunanqikuangshida/photo/zengzhengrong.jpg","质量安全环保科","曾正荣","男","31","工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(7,3,"public/votegroup/shunanqikuangshida/photo/yangkun.jpg","新闻中心","杨锟","女","33","政工师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(7,4,"public/votegroup/shunanqikuangshida/photo/zhangyong.jpg","塔里木油气工程分公司","张勇","男","31","工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(8,5,"public/votegroup/shunanqikuangshida/photo/luoyuhe.jpg","自贡采气作业区","罗玉合","男",35,"生产技术室主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(4,6,"public/votegroup/shunanqikuangshida/photo/wangchuanjie.jpg","乐山采气作业区","王川杰","男",34,"生产技术室副主任/工程师","/");
 insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(6,7,"public/votegroup/shunanqikuangshida/photo/jiangshengfei.jpg","乐山采气作业区","江胜飞","男",30,"工程师 ","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(7,8,"public/votegroup/shunanqikuangshida/photo/zengcheng.jpg","安岳采气作业区","曾诚","男",28,"生产技术室副主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(12,8,"public/votegroup/shunanqikuangshida/photo/zengcheng.jpg","安岳采气作业区","曾诚","男",28,"生产技术室副主任/工程师","/");
 insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(8,9,"public/votegroup/shunanqikuangshida/photo/zhengchuntiao.jpg","长宁页岩气作业区","郑纯桃","男",31,"生产技术室主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(9,10,"public/votegroup/shunanqikuangshida/photo/wangmiao.jpg","长宁页岩气作业区","王淼","男",32,"中心站站长 ","采气工/中级");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(10,11,"public/votegroup/shunanqikuangshida/photo/qiuzongyi.jpg","泸州采气作业区","邱宗毅","男",36,"中心站站长 ","采气工/技师(未聘任)");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(11,12,"public/votegroup/shunanqikuangshida/photo/wangjunli.jpg","纳溪采气作业区","王俊力","男",28,"助理工程师 ","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(12,13,"public/votegroup/shunanqikuangshida/photo/zounibo.jpg","合江采气作业区","邹尼波","男",33,"生产技术室主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(13,14,"public/votegroup/shunanqikuangshida/photo/lijian.jpg","渝西采气作业区","李健","男",28,"助理工程师 ","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(14,15,"public/votegroup/shunanqikuangshida/photo/lanqikui.jpg","荣县天然气净化厂","兰启奎","男",28,"生产技术室副主任/助理工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(15,16,"public/votegroup/shunanqikuangshida/photo/tianjing.jpg","安岳油气处理厂","田婧","女",28,"生产技术室主任/助理工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(16,17,"public/votegroup/shunanqikuangshida/photo/dengfeiyong.jpg","勘探开发研究所","邓飞涌","男",35,"勘探室副主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(17,18,"public/votegroup/shunanqikuangshida/photo/chenweizhi.jpg","工艺研究所","陈维志","男",35,"生产技术室主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(18,19,"public/votegroup/shunanqikuangshida/photo/fengkelai.jpg","维修抢险中心","冯柯来","男",35,"生产技术室主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(19,20,"public/votegroup/shunanqikuangshida/photo/wuyajie.jpg","泸州炭黑厂","邬娅洁","女",39,"生产技术室主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(20,21,"public/votegroup/shunanqikuangshida/photo/zhaoyingding.jpg","试修作业中心","赵英丁","男",34,"生产技术室主任/工程师","/");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(21,22,"public/votegroup/shunanqikuangshida/photo/chensiyang.jpg","汽车服务中心","陈锶洋","男",31,"/","驾驶员/中级");
-insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(22,23,"public/votegroup/shunanqikuangshida/photo/lianglonghua.jpg","消防大队","梁龙华","男",29,"/","消防员/中级");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(4,10,"public/votegroup/shunanqikuangshida/photo/wangmiao.jpg","长宁页岩气作业区","王淼","男",32,"中心站站长 ","采气工/中级");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(7,11,"public/votegroup/shunanqikuangshida/photo/qiuzongyi.jpg","泸州采气作业区","邱宗毅","男",36,"中心站站长 ","采气工/技师(未聘任)");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(4,12,"public/votegroup/shunanqikuangshida/photo/wangjunli.jpg","纳溪采气作业区","王俊力","男",28,"助理工程师 ","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(7,13,"public/votegroup/shunanqikuangshida/photo/zounibo.jpg","合江采气作业区","邹尼波","男",33,"生产技术室主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(6,14,"public/votegroup/shunanqikuangshida/photo/lijian.jpg","渝西采气作业区","李健","男",28,"助理工程师 ","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(5,15,"public/votegroup/shunanqikuangshida/photo/lanqikui.jpg","荣县天然气净化厂","兰启奎","男",28,"生产技术室副主任/助理工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(5,16,"public/votegroup/shunanqikuangshida/photo/tianjing.jpg","安岳油气处理厂","田婧","女",28,"生产技术室主任/助理工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(4,17,"public/votegroup/shunanqikuangshida/photo/dengfeiyong.jpg","勘探开发研究所","邓飞涌","男",35,"勘探室副主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(7,18,"public/votegroup/shunanqikuangshida/photo/chenweizhi.jpg","工艺研究所","陈维志","男",35,"生产技术室主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(5,19,"public/votegroup/shunanqikuangshida/photo/fengkelai.jpg","维修抢险中心","冯柯来","男",35,"生产技术室主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(6,20,"public/votegroup/shunanqikuangshida/photo/wuyajie.jpg","泸州炭黑厂","邬娅洁","女",39,"生产技术室主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(9,21,"public/votegroup/shunanqikuangshida/photo/zhaoyingding.jpg","试修作业中心","赵英丁","男",34,"生产技术室主任/工程师","/");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(7,22,"public/votegroup/shunanqikuangshida/photo/chensiyang.jpg","汽车服务中心","陈锶洋","男",31,"/","驾驶员/中级");
+insert into countvoting (showOrder,id, photoUrl,company,name,sex,age,position,level) values(11,23,"public/votegroup/shunanqikuangshida/photo/lianglonghua.jpg","消防大队","梁龙华","男",29,"/","消防员/中级");

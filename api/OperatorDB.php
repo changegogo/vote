@@ -7,42 +7,42 @@ class OperatorDB
 {
     //root feicui123
     //连接数据库的基本信息
-    private $dbms='mysql';       //数据库类型,对于开发者来说，使用不同的数据库，只要改这个.
-    private $host='127.0.0.1';  //数据库主机名
-    private $dbName='dailiwang';     //使用的数据库
-    private $user='root';       //数据库连接用户名
-    private $passwd='feicui123';     //对应的密码
+    //private $dbms='mysql';        //数据库类型,对于开发者来说，使用不同的数据库，只要改这个.
+    private $host='127.0.0.1';      //数据库主机名
+    private $dbName='vote';    //使用的数据库
+    private $user='root';           //数据库连接用户名
+    private $passwd='snqk_mysqldb123';    //对应的密码
+    //private $passwd='feicui123';    //对应的密码
     private $pdo=null;
     private $dsn = "";
+    // mysqli对象
+    private $mysqli = null;
 
     public function  __construct(){
-        $this->dsn="$this->dbms:host=$this->host;dbname=$this->dbName";
-        try {
-            $this->pdo=new PDO($this->dsn,$this->user,$this->passwd);//初始化一个PDO对象，就是创建了数据库连接对象$db
-        }
-        catch(PDOException $e) {
-            die("<br/>数据库连接失败(creater PDO Error！): ".$e->getMessage()."<br/>");
+        $this->mysqli = new mysqli($this->host,$this->user,$this->passwd,$this->dbName);
+        // 检测连接
+        if ($this->mysqli->connect_error) {
+            die("mysqli连接失败: " . $this->mysqli->connect_error);
         }
     }
     public function __destruct(){
-        $this->pdo = null;
+        $this->mysqli = null;
     }
 
     public function exec($sql){
         try {
-            $this->pdo->query("set names 'utf8'");
-            return $this->pdo->exec($sql);
+            return $this->mysqli->query($sql);
         }
-        catch(PDOException $e) {
+        catch(Exception $e) {
             die("<br/>exec()失败(exec()Failed！): ".$e->getMessage()."<br/>");
         }
     }
     public function query($sql){
         try{
-            $this->pdo->query("set names 'utf8'");
-            return $this->pdo->query($sql);
+            //$this->mysqli->query("set names 'utf8'");
+            return $this->mysqli->query($sql);
         }
-        catch(PDOException $e) {
+        catch(Exception $e) {
             die("<br/>query()失败(exec()Failed！): ".$e->getMessage()."<br/>");
         }
     }

@@ -47,7 +47,9 @@ class OperatorVotingDB
         $sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId, seq) VALUES (1, '$ip', NOW(), '$id',$seq)";
         $subsql = "SELECT * FROM ipvotes WHERE serialNumber=1 AND ip='$ip' AND TO_DAYS(voteTime)=TO_DAYS(NOW()) AND countVotingId='$id' AND seq='$seq'";
         $stm = $this->odb->query($subsql);
-        $c = count($row = $stm->fetchAll());
+
+        $row=mysqli_fetch_array($stm);
+        $c = count($row);
         // 每个IP地址对每位候选人24小时内限投一次
         if ($c >= 1) {
             return "您已经对此人投过票了";
@@ -55,43 +57,14 @@ class OperatorVotingDB
         // 每个IP地址每天投票总数不超过10票
         $oversql = "SELECT count(ip) as num FROM ipvotes WHERE serialNumber=1 AND TO_DAYS(voteTime) = TO_DAYS(NOW()) AND IP='$ip' AND seq='$seq'";
         $stm = $this->odb->query($oversql);
-        $stm->setFetchMode(PDO::FETCH_ASSOC);
-        $arr = $stm->fetchAll();
-        $n =  intval($arr[0]["num"]);
+        $arr = mysqli_fetch_array($stm);
+        $n =  intval($arr["num"]);
         if($n>=10){
             return "每天最多投10次票";
         }else{
-            $this->odb->exec($sql);
+            $istrue = $this->odb->exec($sql);
             return "投票成功";
         }
-
-        /*********************/
-        /*$sql = "INSERT INTO ipvotes (serialNumber, ip, voteTime, countVotingId) VALUES (1, '$ip', NOW(), '$id')";
-        $subsql = "SELECT MAX(to_days(voteTime)) FROM ipvotes WHERE ip='$ip' AND countVotingId='$id'";
-        $stm = $this->odb->query($subsql);
-        // 每个IP地址对每位候选人24小时内限投一次
-        if (count($row = $stm->fetchAll()) == 1) {
-            $now = date("Y-m-d H:i:s");
-            $subsql = "SELECT to_days('$now');";
-            $stm = $this->odb->query($subsql)->fetch();
-            $time = $stm[0];//使用mysql计算出的today时间
-            if ($time - $row[0][0] < 1)//表中最大的时间和现在的时间$time比较
-            {
-                return "投票失败，同一ip需要隔一天才能投票";
-            }
-        }
-        // 每个IP地址每天投票总数不超过10票
-        $oversql = "SELECT count(ip) as num FROM ipvotes WHERE TO_DAYS(voteTime) = TO_DAYS(NOW()) AND IP='$ip' AND serialNumber=1";
-        $stm = $this->odb->query($oversql);
-        $stm->setFetchMode(PDO::FETCH_ASSOC);
-        $arr = $stm->fetchAll();
-        $n =  intval($arr[0]["num"]);
-        if($n>=10){
-            return "每天最多投10次票";
-        }else{
-            $this->odb->exec($sql);
-            return "投票成功";
-        }*/
     }
 
     /**
