@@ -20,7 +20,7 @@ require_once('OperatorVotingDB.php');
 $ovdb = new OperatorVotingDB();
 // 获取投票组信息
 $voteGroup = $ovdb->getVotesGroupInfo();
-// 循环取出记录
+//   循环取出记录
 $voteGroupInfo = "";
 while ($row=mysqli_fetch_assoc($voteGroup))
 {
