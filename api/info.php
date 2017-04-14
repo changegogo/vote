@@ -26,6 +26,8 @@ while ($row=mysqli_fetch_assoc($voteGroup))
 {
     $voteGroupInfo = $row;
 }
+$curTime = date("Y-m-d H:i:s");
+$voteGroupInfo["curSysTime"] = $curTime;
 //获取23名候选人信息
 $personAll = $ovdb->getVotesSortByCount();
 $personsInfo = array();
@@ -35,7 +37,7 @@ while ($row=mysqli_fetch_assoc($personAll))
 }
 
 // 引入候选人信息类
-$resultArr = array(/*"seqVote"=>$seq, */"voteGroupInfo"=>$voteGroupInfo, "personsInfo"=>$personsInfo);
+$resultArr = array("voteGroupInfo"=>$voteGroupInfo, "personsInfo"=>$personsInfo);
 
 $arr = array("code"=>200,"msg"=>"成功","results"=>$resultArr);
 header("Access-Control-Allow-Origin: *");

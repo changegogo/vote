@@ -204,10 +204,10 @@ body{
 	
 }
 /**单位**/
+
 .workPlace{
 	color:#4c4c4c;
 }
-
 .story{
 	color:#ee5116;
 	cursor:pointer;
@@ -293,7 +293,7 @@ body{
 /**放小花的盒子**/
 .textAreaFlower{
 	width:77.5%;
-	height:auto;
+	/*height:auto;*/
 	position:fixed;
 	top:202px;
 	margin:0 auto;
@@ -304,7 +304,6 @@ body{
 .flower{
 	display:block;
 	width:100%;
-	height:auto;
 	height:116px;
 }
 .flower2{

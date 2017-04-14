@@ -34,10 +34,10 @@
             	/**投票说明三条信息**/	
             	var ruleDesArray = data.results.voteGroupInfo.ruleDes;
             	var newRuleDesArray = ruleDesArray.split("&");
-            	$(".one").text(newRuleDesArray[0]);
-            	$(".two").text(newRuleDesArray[1]);
-            	$(".three").text(newRuleDesArray[2]);
-            	$(".four").text(newRuleDesArray[3]);
+            	var votingInstructionsArray = $(".votingInstructions");
+            	for(var i=0;i<newRuleDesArray.length;i++){
+            		$(votingInstructionsArray[i]).html(newRuleDesArray[i]);
+				}
             },
             error: function (err) {
 
