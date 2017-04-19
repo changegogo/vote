@@ -1,0 +1,9 @@
+<?php
+namespace Home\Controller;
+use Think\Controller;
+class TestController extends Controller {
+	//Ê×Ò³
+    public function index(){
+    	echo __URL__;
+    }
+}

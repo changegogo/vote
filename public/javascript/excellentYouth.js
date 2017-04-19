@@ -88,9 +88,8 @@
     
     /***详细事迹弹出框的关闭****/
 	$(".closeKuang").click(function(){
-		$(".detailBigBox").css("display","none");
 		$(".innerDetailBox").animate({scrollTop:0},0);
-		
+        $(".detailBigBox").css("display","none");
 	})
 	/***关闭投票按钮的弹出框***/
 	$(".votingKuangCloseBtn").click(function(){

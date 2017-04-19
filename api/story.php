@@ -19,7 +19,7 @@ if(isset($_GET["name"])){
     $myfile = fopen($path, "r") or die("没有找到个人事迹");
     header('Content-Type: text/html; charset=utf-8');
     header("Access-Control-Allow-Origin: *");
-    echo "<pre>";
+    echo "<pre style='width:100%;white-space: pre-wrap;word-wrap: break-word;  '>";
     echo fread($myfile,filesize($path));
     echo "</pre>";
     fclose($myfile);

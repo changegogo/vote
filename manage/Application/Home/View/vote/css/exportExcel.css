@@ -1,0 +1,28 @@
+.main{
+	width:90%;
+	margin:0 auto;
+	margin-bottom:20px;
+}
+.title{
+	text-align: center;
+	font-size:22px;
+	padding-top:10px;
+}
+.exportBtn{
+	display:block;
+	border:none;
+	width:100px;
+	height:26px;
+	line-height:26px;
+	text-align: center;
+	background: #0f0;
+	color:#fff;
+	/*border-radius:10px;*/
+	font-weight:900;
+	margin-bottom:10px;
+	
+}
+.table{
+	width:100%;
+	text-align:center;
+}

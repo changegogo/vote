@@ -3,7 +3,6 @@ body{
 	background:url(../images/bg1.png) ;
 	background-repeat:repeat-x ;
 	background-size:contain;
-	
 }
 .headerAll{
 	width:100%;
@@ -298,17 +297,22 @@ body{
 	top:202px;
 	margin:0 auto;
 	margin-left:-30px;
-	
-
 }
 .flower{
 	display:block;
 	width:100%;
 	height:116px;
 }
+.flower1{
+	background: url(../images/flowerEven.png);
+}
+
 .flower2{
 	width:93%;
+	background: url(../images/flowerEven.png);
+	margin-left:78px;
 }
+/*
 .flower:nth-child(odd){
 	background: url(../images/flowerEven.png);
 }
@@ -316,6 +320,7 @@ body{
 	background: url(../images/flowerEven.png);
 	margin-left:78px;
 }
+*/
 /******************点击投票按钮的弹出框***************/
 .votingKuang{
 	width:446px;

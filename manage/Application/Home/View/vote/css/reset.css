@@ -1,0 +1,57 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+.innerWrap{
+	width:1000px;
+	margin:0 auto;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+*:not(input,textarea) {
+  -webkit-touch-callout: inherit;
+  -webkit-user-select: auto;
+}
+body {
+  width: 100%;
+  font-family:"微软雅黑", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  -webkit-touch-callout: inherit ;
+  -webkit-user-select: auto ;
+}
+a {
+	color:#000;
+  text-decoration: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:hover {
+  text-decoration: none;
+}
+button,input,select,textarea {
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+dt,dd {
+  display: inline-block;
+}
+textarea,input {
+  resize: none;
+  outline: none;
+}
+textarea {
+  resize: none;
+  -webkit-appearance: none;
+}
+ul,ol,li {
+  list-style: none;
+}
+em {
+  font-style: normal;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>数据导出</title>
+	<meta http-equiv="content-type" content="text/html" charset="utf-8"/>
+	<meta name="" content=""/>
+	<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="js/votegroupinfo.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
+
+	<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+	<link rel="stylesheet" href="css/votegroupinfo.css" />
+</head>
+<body>
+	
+<div class="voterGroupInfoContainer " id="upload">
+	<h1 class="voterGroupInfoTitle">投票组信息编辑</h1>
+	<!--投票组名称-->
+	<div class="inputContainer">
+		<div class="text fl"></div>
+		<textarea class="input"  value=""/></textarea>
+	</div>
+	<!--活动简介-->
+	<div class="inputContainer">
+		<div class="text fl"></div>
+		<textarea  class="input" id="erea" value=""  /></textarea>
+	</div>
+	<!--标题图片地址-->
+	<div class="inputContainer ">
+		<div class="text fl"></div>
+		<!---上传域-->
+		<input type="file" name="upfile" class="picBtn" value=""/>
+		<!---路径-->
+		<input id="path" type="text " class="imgInput" value=""><br>
+		<!---图片-->
+		<img id="photo" src="" alt="">
+	</div>
+	
+		<!--投票说明-->
+		<div class="inputContainer ">
+			<div class="text fl"></div>
+			<textarea class="input" id="erea"  value=""/></textarea>
+		</div>
+		
+		
+		
+		<div id="timeFrame" >
+			<!--生效开始日期-->
+			<div class="timeOne fl">
+				<div class="text  fl" id="startTimeText"></div>
+				<input type="date" class="input timeDeadLine" id="startTimeInput" value=""/>
+				<!--<input class="Wdate" class="input"  type="text" onclick="WdatePicker()" id="startDate" name="startDate">-->
+			</div>
+			
+			<!--截止失效日期-->
+			<div class="timeTwo fl">
+				<div class="text fl" id="endTimeText"></div>
+				<input type="date" class="input timeDeadLine" id="endTimeInput" value=""/>
+			</div>
+		</div>
+		
+	
+	
+	
+	<!--备选数量-->
+	<div class="inputContainer ">
+		<div class="text fl"></div>
+		<textarea class="input"  value=""/></textarea>
+	</div>
+	<!--IP限制-->
+	<div class="inputContainer ">
+		<div class="text fl"></div>
+		<textarea class="input"  value=""/></textarea>
+	</div>
+	<div class="btnContainer">
+		<button class="voterBtn fl save" type="button">保存</button>
+	</div>	
+		
+</div>
+
+
+</body>
+</html>

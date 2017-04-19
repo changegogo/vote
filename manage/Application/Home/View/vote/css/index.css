@@ -1,0 +1,377 @@
+body{
+	width:100%;
+	background:url(../images/bg1.png) ;
+	background-repeat:repeat-x ;
+	background-size:contain;
+	
+}
+.headerAll{
+	width:100%;
+	background:  url(../images/bodyBgCaiDai.png) no-repeat;
+}
+/**头部**/
+.headerContainer{
+	height:320px;
+	overflow:hidden;
+}
+.headerContainerInnerBox{
+	margin-top:124px;
+}
+.logo{
+	width:10%;
+	height:112px;
+
+	
+}
+.logoText{
+	margin-left:10%;
+	width:70%;
+}
+.logoText img:nth-child(1){
+	max-width:28%;
+	margin-bottom:30px;
+}
+.logoText img{
+	max-width:100%;
+}
+.activityBriefContainer{
+	height:410px;
+	background: -webkit-linear-gradient(#f66701,#fedc34, #ff8e36);
+	background: -o-linear-gradient(#f66701, #fedc34, #ff8e36); 
+	background: -moz-linear-gradient(#f66701,#fedc34, #ff8e36);
+	background: linear-gradient(#f66701,#fedc34, #ff8e36); 
+	overflow:hidden;
+	
+	
+	
+}
+.activityBrief{
+    position:relative;
+	height:202px;
+	border-radius:16px;
+	background: #df2101;
+	color:#fff;
+	margin-top:22px;
+	background:#df2101 url(../images/star.png) no-repeat;
+}
+.cloud1{
+	position:absolute;
+	right:60px;
+	top:228px;
+}
+.cloud2{
+	position:absolute;
+	left:20px;
+	top:330px;
+}
+.activityBriefTitle{
+	font-size:24px;
+	padding-top:20px;
+	padding-bottom:20px;
+	text-align:center;
+}
+.activityBriefText{
+	margin:0 auto;
+	width:90%;
+	font-size:16px;
+	line-height:34px;
+	text-indent: 35px;
+}
+
+/**投票说明**/
+.vote{
+	color:#000;
+	width:80%;
+	margin:0 auto;
+	font-size:15px;
+	line-height:30px;
+}
+.code{
+	display:none;
+}
+.voteBtn{
+	margin-top:16px;
+	margin-bottom:6px;
+}
+.vote .one{
+	padding-left:5%;
+	background: url(../images/1.png) no-repeat left center;
+}
+.vote .two{
+	padding-left:5%;
+	background: url(../images/2.png) no-repeat left center;
+}
+.vote .three{
+	padding-left:5%;
+	background: url(../images/3.png) no-repeat left center;
+}
+.vote .four{
+	padding-left:5%;
+	background: url(../images/4.png) no-repeat left center;
+}
+/**照片区域**/
+.photeArea{
+	
+	padding-top:20px;
+	overflow: hidden;
+	background: #fff url(../images/water.png) no-repeat center bottom;
+	position:relative;
+}
+
+/** 照片区域title**/
+.photeAreaTitle{
+	width:100%;
+	height:82px;
+	position:relative;
+}
+.photoAreaTitle .photoAreaTitleBg{
+	display:block;
+	width:1250px;
+}
+.photoAreaTitleText{
+	position:absolute;
+	left:30px;
+	top:20px;
+	color:#ffe902;
+	font-size:16px;
+}
+
+.company,.post,.level{
+	display:inline-block;
+	white-space:nowrap;
+	text-overflow:ellipsis; 
+	o-text-overflow:ellipsis; 
+	overflow: hidden;
+	
+	cursor:pointer;
+}
+.company{
+	width:60%;
+	margin-bottom:-4px;
+	
+}
+.post{
+	width:100%;
+	
+}
+.level{
+	width:50%;
+	margin-bottom:-2px;
+	
+}
+
+
+
+/***照片框+描述**/
+.photoContent{
+	width:98%;
+	margin:0 auto;
+	margin-left:3%;
+	position:relative;
+}
+
+.eachPhoto{
+	width:25%;
+	margin-bottom:10px;
+	font-size:12px;
+	color:#766868;
+}
+
+/**照片框**/
+.photo{
+	
+	position:relative;
+	width:107px;
+	height:169px;
+	margin-right:6px;
+}
+.photoKuang{
+	position:absolute;
+	left:0;
+}
+.photoPic{
+	width:94px;
+	height:139px;
+	position:absolute;
+	left:7px;
+	top:15px;
+}
+/**照片框右面的文字**/
+
+.photoText{
+	width:50%;
+	
+	
+}
+/**单位**/
+
+.workPlace{
+	color:#4c4c4c;
+}
+.story{
+	color:#ee5116;
+	cursor:pointer;
+}
+.votingBtn{
+	width:72px;
+	height:20px;
+	cursor:pointer;
+}
+.photoText li{
+	line-height:18px;
+}
+
+/**弹出框**/
+.detailBigBox{
+	width:100%;
+	height:100%;
+	z-index:1000000;
+	position:fixed;
+	left:0;
+	top:0;
+	display:none;
+}
+.detailBox{
+	width:80%;
+	height:460px;
+	position:absolute;
+	top:100px;
+	left:10%;
+	background: #f2f2f2;
+	border-radius:20px;
+	
+	color:#332f2c;
+	
+	
+}
+.closeKuang{
+	position:absolute;
+	right:67px;
+	top:46px;
+}
+.innerDetailBox{
+	width:96%;
+	height:420px;
+	border:1px solid #cacaca;
+	background: #fff;
+	position:absolute;
+	left:2%;
+	top:20px;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	
+	
+	/*background-size:contain;*/
+}
+.innerDetailBoxTitle{
+	padding:10px 0;
+	border-bottom:3px solid #f2f2f2;
+	
+}
+.innerDetailBox h1{
+	text-align:center;
+}
+.flowerSmallBox{
+	width:100%;
+	height:420px;
+}
+.textArea{
+	width:100%;
+	/*height:480px;*/
+	padding-top:50px;
+	/*background: url(../images/flower_s1.png);*/
+	position:relative;
+}
+.textAreaTxt{
+	width:94%;
+	position:absolute;
+	left:3%;
+}
+.textArea h1{
+	text-align: center;
+}
+/**放小花的盒子**/
+.textAreaFlower{
+	width:77.5%;
+	/*height:auto;*/
+	position:fixed;
+	top:202px;
+	margin:0 auto;
+	margin-left:-30px;
+	
+
+}
+.flower{
+	display:block;
+	width:100%;
+	height:116px;
+}
+.flower2{
+	width:93%;
+}
+.flower:nth-child(odd){
+	background: url(../images/flowerEven.png);
+}
+.flower:nth-child(even){
+	background: url(../images/flowerEven.png);
+	margin-left:78px;
+}
+/******************点击投票按钮的弹出框***************/
+.votingKuang{
+	width:446px;
+	height:169px;
+	border-radius:5px;
+	background: #f2f2f2;
+	border:1px solid #4C4C4C;
+	position:fixed;
+	left:50%;
+	margin-left:-213px;
+	top:10%;
+	display:none;
+}
+.votingKuangTitle{
+	width:90%;
+	height:40px;
+	line-height:40px;
+	margin:0 auto;
+	margin-top:20px;
+	font-size:20px;
+	font-weight:900;
+}
+/**弹出框文本框**/
+.votingKuangText{
+	width:90%;
+	height:50px;
+	margin:0 auto;
+}
+/**弹出框确认按钮**/
+.votingKuangCloseBtn{
+	width:70px;
+	height:30px;
+	line-height:30px;
+	border:1px solid #3770dc;
+	margin-left:350px;
+	text-align:center;
+	cursor:pointer;
+	
+}
+
+/**footer**/
+.footer{
+	font-size:15px;
+	height:110px;
+	background:#d0000d;
+	/*margin-top:20px;*/
+	color:#fff;
+}
+.footerTextBox{
+	margin:0 auto;
+	padding-top:29px;
+	width:300px;
+
+	
+}
+.footer p{
+	line-height:27px;
+}
+

@@ -8,14 +8,7 @@
  */
 // 判断前端中是否有对应的cookie
 // 如果没有就生成一个
-/*$seq = "";
-if(!isset($_GET["seqVote"]) || $_GET["seqVote"]==""){
-    // 生成token
-    $seq = require_once ("sequece.php");
-}else{
-    $seq = $_GET["seqVote"];
-}*/
-
+date_default_timezone_set("PRC");
 require_once('OperatorVotingDB.php');
 $ovdb = new OperatorVotingDB();
 // 获取投票组信息
@@ -26,7 +19,7 @@ while ($row=mysqli_fetch_assoc($voteGroup))
 {
     $voteGroupInfo = $row;
 }
-$curTime = date("Y-m-d H:i:s");
+$curTime = date("Y-m-d");
 $voteGroupInfo["curSysTime"] = $curTime;
 //获取23名候选人信息
 $personAll = $ovdb->getVotesSortByCount();

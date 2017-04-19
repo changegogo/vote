@@ -21,14 +21,19 @@
             }
 
             $.ajax({
-                url: "api/login.php",
+                url: "judge.php",
                 type: "post",
                 data: {
                     user: _user,
                     passwd: _passwd
                 },
                 success: function (data) {
-                    alert(data);
+                    if(data.code==200){
+                        window.location.href=data.href;
+                    }else{
+                        alert(data.msg);
+                    }
+
                 },
                 error: function (err) {
                     

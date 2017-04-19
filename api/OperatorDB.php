@@ -12,7 +12,7 @@ class OperatorDB
     private $dbName='vote';    //使用的数据库
     private $user='root';           //数据库连接用户名
     //private $passwd='snqk_mysqldb123';    //对应的密码
-    private $passwd='feicui123';    //对应的密码
+    private $passwd='root';    //对应的密码
     private $pdo=null;
     private $dsn = "";
     // mysqli对象
@@ -30,14 +30,6 @@ class OperatorDB
         $this->mysqli = null;
     }
 
-    public function exec($sql){
-        try {
-            return $this->mysqli->query($sql);
-        }
-        catch(Exception $e) {
-            die("<br/>exec()失败(exec()Failed！): ".$e->getMessage()."<br/>");
-        }
-    }
     public function query($sql){
         try{
             //$this->mysqli->query("set names 'utf8'");

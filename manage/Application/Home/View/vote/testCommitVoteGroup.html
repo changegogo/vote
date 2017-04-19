@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    $.ajax({
+        url:"/vote/admin/api/commitVoteGroup.php",
+        type:"post",
+        contentType: "application/json;",
+        data:JSON.stringify({
+            name: "蜀南气矿",
+            explain: "123",
+            titlePicUrl: "123",
+            ruleDes: "123",
+            effectStartTime: "2017-04-17",
+            effectEndTime: "2017-04-27",
+            candidateTime: 23,
+            ipLimit: 1
+        }),
+        success: function (data) {
+            //alert(JSON.stringify(data));
+            alert(data);
+        },
+        error: function (err) {
+            alert("error");
+        }
+    });
+</script>
+
+</body>
+</html>

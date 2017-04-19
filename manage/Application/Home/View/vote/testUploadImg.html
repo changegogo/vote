@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试上传图片</title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.1/jquery.form.min.js" integrity="sha384-tIwI8+qJdZBtYYCKwRkjxBGQVZS3gGozr3CtI+5JF/oL1JmPEHzCEnIKbDbLTCer" crossorigin="anonymous"></script>
+</head>
+<body>
+<form id="tf">
+    	上传文件:
+    <input name="upfile" type="file" onchange="uploadImg()">
+    <input id="path" type="text" value=""><br>
+<img id="photo" src="" alt="">
+
+</form>
+
+<script type="text/javascript">
+    function uploadImg(){
+        $("#upload").ajaxSubmit({
+            url: "/vote/admin/api/uploadImg.php",
+            type: "POST",
+            success: function(data){
+                alert(JSON.stringify(data));
+                if(data.code==200){
+                    $("#path").val(data.result.filepath);
+                    $("#photo").attr("src",data.result.filepath);
+                }
+
+            }
+        });
+    }
+</script>
+
+
+</body>
+</html>

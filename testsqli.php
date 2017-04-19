@@ -8,7 +8,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "feicui123";
-$dbName='dailiwang';     //使用的数据库
+$dbName='vote';     //使用的数据库
 
 // 创建连接
 $conn = new mysqli($servername, $username, $password, $dbName);
